@@ -18,7 +18,9 @@
       {{num}} : {{char}}
     </h3>
     <div class="tips">
-      小提示:亮起1时分别对应 8 4 2 1 
+      小提示:单独点亮1,分别对应 8 4 2 1 <br>
+      (如:0100 = 4) <br>
+
     </div>
   </div>
 </template>
@@ -76,8 +78,7 @@ body {
 }
 
 .tips {
-  position:absolute;
-  bottom:0px;
-  left: 25%;
+  position: relative;;
+  bottom:-20vh;
 }
 </style>
