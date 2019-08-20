@@ -1,28 +1,83 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="p-4">
+    <h2>《长安十二时辰》- 望楼传信系统 (二进制版)</h2>
+    <h5 class="pt-4 chars">
+      <span v-for="(n, i) in chars" :key="n">
+        {{n}} {{i}}
+      </span>
+    </h5>
+    <div class="pt-3 d-flex justify-content-center">
+      <div class="box" 
+      v-for="(n, i) in lights" :key="i"
+      :class="{active: n}" 
+      @click="$set(lights, i, 1 - n)">
+        {{n}}
+      </div>
+    </div>
+    <h3 class="pt-4">
+      {{num}} : {{char}}
+    </h3>
+    <div class="tips">
+      小提示:亮起1时分别对应 8 4 2 1 
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      chars: ' 张都尉 狼 入 东市 西市 平康 永宁 永昌 太极宫 大业 开化 常乐 安仁 大安 延康'.split(' '),
+      lights: Array(4).fill(0)
+    }
+  },
+  computed: {
+    num(){
+      return parseInt(this.lights.join(''), 2)
+    },
+
+    char(){
+      return this.chars[this.num]
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body {
+  background: #000;
+  color: #ccc;
+  font-family: 'STkaiti';
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+.box {
+  width: 4rem;
+  height: 4rem;
+  background: #333;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+}
+.active {
+  background: #ecc;
+  color: #333;
+}
+.chars {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chars span {
+  display: inline-block;
+  width: 2rem;
+}
+
+.tips {
+  position:absolute;
+  bottom:0px;
+  left: 25%;
 }
 </style>
