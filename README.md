@@ -1,29 +1,9 @@
-# changan-wanglou
+# 《长安十二时辰》 - 望楼传信系统（二进制版）
 
-## Project setup
-```
-npm install
-```
+tips: <br>
+ 1000 = 8 <br>
+ 0100 = 4 <br>
+ 0010 = 2 <br>
+ 0001 = 1 <br>
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+希望你今天愉快 :blush: 
